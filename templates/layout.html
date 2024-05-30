@@ -1,20 +1,16 @@
 <!doctype >
 <html>
     <head>
-         <link rel="stylesheet" href="/static/css/style.css">
-         <title>{{title}}</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     </head>
+    <div class="content">
     <body>
-    <p style="background-image: url('img/websitebackground.jpg');">
-    <div id="back">
-            <div id="everything">
-                <header>
-                    {% include "nav.html"%}
-                </header>
-                <main>
-                    {% block contents %}{% endblock %}
-                </main>
-        </div>
-    </div>
+        <header>
+            {% include "nav.html"%}
+        </header>
+        <main>
+            {% block contents %}{% endblock %}
+        </main>   
     </body>
+    </div>
 </html>

@@ -1,0 +1,136 @@
+/* navbar */
+
+header{
+    text-align: center;
+    margin-top: 14px; 
+}
+
+
+a:link, a:visited {
+    background-color: grey;
+    color: black;
+    border: 2px solid black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+  }
+  
+  a:hover, a:active {
+    background-color: white;
+    color: black;
+  }
+
+
+/* main car page*/
+
+.carinfo{
+    margin: auto;
+    margin-top: 15px; 
+    width: 80%;
+    height: 840px;
+    
+}
+
+.title{ 
+    background-color: grey;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.info{ 
+    background-color: grey;
+    border-style: solid;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 80%;
+    height: 740px;
+}
+
+/* video */
+
+.video{
+    background-color: grey;
+    border-style: solid;
+    border-radius: 10px;
+    margin-top: 10px;
+    height: 740px;
+}
+
+
+.vid{   
+    width: 90%;
+    height: 90%;
+    margin-top: 2.2%;
+    margin-left: 5%;
+}
+
+/* image slider */
+
+div.scroll-container {
+    margin-top: 3%;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px;
+  }
+  
+/* animation */
+
+body{
+    height: 100%;
+    width: 100%;
+    background-image: url(/static/img/websitebackground.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 5s;
+    animation-name: backgroundslide;
+    animation-direction: alternate-reverse;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
+    animation-duration: 30s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    position: absolute;
+}
+@keyframes backgroundslide{
+	0%{
+        background-image: url("/static/img/websitebackground.jpg")
+    }
+    50%{
+        background-image: url("/static/img/websitebackground2.jpg")
+    }
+    100%{
+        background-image: url("/static/img/websitebackground.jpg")
+    }
+}
+
+/* password https://youtu.be/McPdzhLRzCg?si=Rw06oIaGUeuwsA5f */
+
+.password{ 
+    background-color: grey;
+    border-style: solid;
+    border-radius: 10px;
+    width: 40%;
+    margin: auto;
+    margin-top: 18%;  
+}
+
+/* make */
+.maketitle{
+    background-color: grey;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.make{
+    width: 80%;
+    margin: auto;
+}
+
+.rowone{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+}

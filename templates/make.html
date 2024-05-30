@@ -1,0 +1,18 @@
+{% extends "layout.html"%}
+{% block contents %}
+{% for item in results %}
+
+<!-- this displays the make page -->
+<div class="make">
+    <div class=maketitle> 
+        <h1>Makes</h1>
+    </div>
+    <div class="rowone">
+        <h2><a class="link" href="/stand">
+            {{item}} 
+        </a></h2>   
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}

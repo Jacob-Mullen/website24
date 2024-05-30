@@ -1,0 +1,57 @@
+{% extends "layout.html"%}
+{% block contents %}
+{% for item in results %}
+
+<div class="carinfo">
+    <div class="title">
+        <h1>{{item[1]}}</h1>
+    </div>
+    <div class="info">
+        <h1>
+              Info
+        </h1>
+        <div class="make">
+          <h2>Make</h2>
+          <h3>
+                {{item[5]}}
+          </h3>
+        </div>
+        <div class="model">
+          <h2>Model</h2>
+          <h3>
+                {{item[1]}}
+          </h2>
+        </div>
+        <div class="engine">
+          <h2>Engine</h2>
+          <h3>
+                {{item[6]}}
+          </h3>
+        </div>
+        <div class="stockhp">
+          <h2>Stock HP</h2>
+          <h3>
+                {{item[3]}}hp
+          </h3>
+        </div>
+        <div class="stocktorque">
+          <h2>Stock Torque</h2>
+          <h3>
+                {{item[4]}}ft⋅lbf
+          </h3>
+        </div>
+      </div>
+    <div class="video">
+      <iframe class="vid" src="https://www.youtube.com/embed/5WfGOjJBYX0?si=0KaBZ3IZNMC_vhmJ" ></iframe>
+    </div>
+    <div class="video">
+      <div class="scroll-container">
+        <img src="/static/img/img1.jpg" alt="one" width="80%" height="80%">
+        <img src="/static/img/img2.jpg" alt="two" width="80%" height="80%">
+        <img src="/static/img/img3.jpg" alt="three" width="80%" height="80%">
+      </div>
+    </div>
+</div>
+
+{% endfor%}
+{% endblock %}
