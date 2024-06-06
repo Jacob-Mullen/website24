@@ -1,6 +1,6 @@
 {% extends "layout.html"%}
 {% block contents %}
-{% for item in results %}
+
 
 <!-- this displays the make page -->
 <div class="make">
@@ -8,11 +8,21 @@
         <h1>Makes</h1>
     </div>
     <div class="rowone">
-        <h2><a class="link" href="/stand">
-            {{item}} 
+        <h2><a class="link" href="/stand" scr=>
+            <img class="sus" src="/static/img/Honda-Logo.png">
+        </a></h2>   
+    </div>
+    <div class="rowone">
+        <h2><a class="link" href="/stand" scr=>
+            <img class="sus" src="/static/img/Honda-Logo.png">
+        </a></h2>   
+    </div>
+    <div class="rowone">
+        <h2><a class="link" href="/stand" scr=>
+            <img class="sus" src="/static/img/Honda-Logo.png">
         </a></h2>   
     </div>
 </div>
 
-{% endfor %}
+
 {% endblock %}

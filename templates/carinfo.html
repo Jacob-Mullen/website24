@@ -2,56 +2,89 @@
 {% block contents %}
 {% for item in results %}
 
-<div class="carinfo">
-    <div class="title">
-        <h1>{{item[1]}}</h1>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div class="containercars">
+
+  <div class="title">
+    <h1>{{item[1]}}</h1>
+  </div>
+
+  
+  <div class="info">
+    <h1>
+          Info
+    </h1>
+    <div class="make">
+      <h2>Make</h2>
+      <h3>
+            {{item[5]}}
+      </h3>
     </div>
-    <div class="info">
-        <h1>
-              Info
-        </h1>
-        <div class="make">
-          <h2>Make</h2>
-          <h3>
-                {{item[5]}}
-          </h3>
-        </div>
-        <div class="model">
-          <h2>Model</h2>
-          <h3>
-                {{item[1]}}
-          </h2>
-        </div>
-        <div class="engine">
-          <h2>Engine</h2>
-          <h3>
-                {{item[6]}}
-          </h3>
-        </div>
-        <div class="stockhp">
-          <h2>Stock HP</h2>
-          <h3>
-                {{item[3]}}hp
-          </h3>
-        </div>
-        <div class="stocktorque">
-          <h2>Stock Torque</h2>
-          <h3>
-                {{item[4]}}ft⋅lbf
-          </h3>
-        </div>
-      </div>
-    <div class="video">
-      <iframe class="vid" src="https://www.youtube.com/embed/5WfGOjJBYX0?si=0KaBZ3IZNMC_vhmJ" ></iframe>
+    <div class="model">
+      <h2>Model</h2>
+      <h3>
+            {{item[1]}}
+      </h2>
     </div>
-    <div class="video">
-      <div class="scroll-container">
-        <img src="/static/img/img1.jpg" alt="one" width="80%" height="80%">
-        <img src="/static/img/img2.jpg" alt="two" width="80%" height="80%">
-        <img src="/static/img/img3.jpg" alt="three" width="80%" height="80%">
-      </div>
+    <div class="engine">
+      <h2>Engine</h2>
+      <h3>
+            {{item[6]}}
+      </h3>
+    </div>
+    <div class="stockhp">
+      <h2>Stock HP</h2>
+      <h3>
+            {{item[3]}}hp
+      </h3>
+    </div>
+    <div class="stocktorque">
+      <h2>Stock Torque</h2>
+      <h3>
+            {{item[4]}}ft⋅lbf
+      </h3>
     </div>
 </div>
+
+  <div class="video">
+    <div class="slider">
+      <div class="w3-content w3-display-container">
+        <img class="mySlides" src="/static/img/img1.jpg" style="width:100%">
+        <img class="mySlides" src="/static/img/img2.jpg" style="width:100%">
+        <img class="mySlides" src="/static/img/img3.jpg" style="width:100%">
+        <iframe class="mySlides" src="https://www.youtube.com/embed/5WfGOjJBYX0?si=0KaBZ3IZNMC_vhmJ" ></iframe>
+      
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+      </div>
+      
+      <script>
+      var slideIndex = 1;
+      showDivs(slideIndex);
+      
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+      
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }
+        x[slideIndex-1].style.display = "block";  
+      }
+      </script>
+    </div>    
+  </div>
+
+
+</div>
+
+
 
 {% endfor%}
 {% endblock %}

@@ -25,7 +25,7 @@ a:link, a:visited {
 
 /* main car page*/
 
-.carinfo{
+.containercars{
     margin: auto;
     margin-top: 15px; 
     width: 80%;
@@ -44,8 +44,9 @@ a:link, a:visited {
     border-style: solid;
     border-radius: 10px;
     margin-top: 10px;
-    margin-left: 80%;
     height: 740px;
+    width: 24%;
+    float: inline-end;
 }
 
 /* video */
@@ -55,15 +56,18 @@ a:link, a:visited {
     border-style: solid;
     border-radius: 10px;
     margin-top: 10px;
+    margin-right: 80%;
+    width: 60%;
     height: 740px;
+    float: inline-start;
+    position: absolute;
 }
 
 
-.vid{   
-    width: 90%;
-    height: 90%;
-    margin-top: 2.2%;
-    margin-left: 5%;
+
+.slider{   
+    margin-top: 4%;
+    margin-left: 0%;
 }
 
 /* image slider */
@@ -133,4 +137,8 @@ body{
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(3, 1fr);
+}
+
+.sus{
+    width: 50%;
 }
