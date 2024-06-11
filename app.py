@@ -23,13 +23,13 @@ def carinfo(car_id):
 # renders make table
 @app.route('/make')
 def make():
- #   conn = sqlite3.connect('cars.db')
-  #  cur = conn.cursor()
-   # cur.execute('SELECT * FROM make WHERE whatmake')
-   # results = cur.fetchall()
-   # print(results)
-   # return render_template('make.html', title="make", results=results)
-   return render_template('make.html')
+    conn = sqlite3.connect('cars.db')
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM make')
+    results = cur.fetchall()
+    print(results)
+    return render_template('make.html', title="make", results=results)
+   #return render_template('make.html')
 
 @app.route('/admin')
 def admin():
