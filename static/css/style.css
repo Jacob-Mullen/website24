@@ -139,6 +139,13 @@ body{
     grid-template-columns: repeat(3, 1fr);
 }
 
-.sus{
-    width: 50%;
+.carimage{
+    width: auto;
+    height: 150px;
+    /* makes it work but not on phone height 150px*/
+}
+
+.link{
+    width: 100%;
+
 }
