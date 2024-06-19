@@ -5,9 +5,15 @@ import sqlite3
 app = Flask(__name__)
 
 #this is the route to the home page/landing page
+
 @app.route('/')
 def landingpage():
-    return render_template('landing_page.html')
+    conn = sqlite3.connect('cars.db')
+    cur = conn.cursor()
+    cur.execute('select * FROM car')
+    results = cur.fetchall()
+    print(results)
+    return render_template("landing_page.html", title="home", results=results)
 
 @app.route('/car/<int:car_id>')
 def carinfo(car_id):  
