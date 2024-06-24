@@ -1,6 +1,12 @@
 {% extends "layout.html"%}
 {% block contents %}
 <div class="password">
-    <h1>password:</h1>
-    </div>
+    <form>
+        <input type="text" id="username" placeholder="Choose Username">
+        <input type="password" id="password" placeholer="Choose Password">
+        <button type="button" onclick="getInfo()">Click Me</button>
+    </form>
+
+    <script src="/static/JS/passwords.js"></script>
+</div>
 {% endblock %}

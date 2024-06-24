@@ -124,15 +124,6 @@ body{
 
 /* password https://youtu.be/McPdzhLRzCg?si=Rw06oIaGUeuwsA5f */
 
-.password{ 
-    background-color: grey;
-    border-style: solid;
-    border-radius: 10px;
-    width: 40%;
-    margin: auto;
-    margin-top: 18%;  
-}
-
 /* make */
 .maketitle{
     background-color: grey;
@@ -160,4 +151,26 @@ body{
 .link{
     width: 100%;
 
+}
+
+    /* password stuff also not:margin:auto won't work when you have a float or haven't specified a width. kohoutek: margin:auto won't work when you have a float or haven't specified a width.3 Feb 2012*/
+
+
+
+
+.password{ 
+    background-color: grey;
+    border-style: solid;
+    border-radius: 10px;
+    width: 40%;
+    margin: auto;
+}
+
+
+
+.passinside{
+    margin-left: auto;
+    width: 100%;
+    margin-top: 3%;
+    inh
 }
