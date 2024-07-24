@@ -17,7 +17,7 @@ function getInfo() {
 		// check is user input matches username and password of a current index of the objPeople array
 		if(username == objPeople[i].username && password == objPeople[i].password) {
 			console.log("passssssssss!!!")
-            window.location.href = "/car/1"; // Replace with your actual path
+            window.location.href = "/add"; 
 			// stop the function if this is found to be true
 			return
 		}

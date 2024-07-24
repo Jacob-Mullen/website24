@@ -1,4 +1,4 @@
-from flask import Flask,render_template 
+from flask import Flask,render_template, request
 import sqlite3
 
 
@@ -52,6 +52,37 @@ def makes(make_id):
 @app.route('/admin')
 def admin():
     return render_template('adminpasswall.html')
+
+@app.route('/add')
+def add():
+    return render_template('add.html')
+
+@app.route('/process', methods=['POST'])
+def process():
+    Make = request.form['Make']
+    Model = request.form['Model']
+    Engine = request.form['Engine']
+    Stock_HP = request.form['Stock HP']
+    Stock_Torque = request.form['Stock Torque']
+    Image = request.form['Image']
+    Drive = request.form['Drive']
+    
+    # Print for debugging purposes
+    print("Make:", Make, "Model:", Model, "Engine:", Engine, "Stock_HP:", Stock_HP, "Stock_Torque:", Stock_Torque, "Image:", Image, "Drive:", Drive)
+    
+    conn = sqlite3.connect('cars.db')
+    cur = conn.cursor()
+    
+    # Corrected INSERT statement with placeholders and tuple of values
+    cur.execute("INSERT INTO car (make, model, engine, stockhp, stocktorque, image, drive) VALUES (?, ?, ?, ?, ?, ?, ?)", 
+                (Make, Model, Engine, Stock_HP, Stock_Torque, Image, Drive))
+    
+    conn.commit()  # Commit the transaction
+    
+    conn.close()   # Close the connection
+    
+    return render_template("makes.html", title="makes")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

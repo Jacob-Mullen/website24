@@ -1,0 +1,16 @@
+{% extends "layout.html"%}
+{% block contents %}
+<body>
+    <h1>Enter Text</h1>
+    <form action="/process" method="post">
+        <input type="text" name="Make" required placeholder="Make"><br>
+        <input type="text" name="Model" required placeholder="Model"><br>
+        <input type="text" name="Engine" required placeholder="Engine"><br>
+        <input type="text" name="Stock HP" required placeholder="Stock HP"><br>
+        <input type="text" name="Stock Torque" required placeholder="Stock Torque"><br>
+        <input type="text" name="Image" required placeholder="Image"><br>
+        <input type="text" name="Drive" required placeholder="Drive"><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+{% endblock %}
