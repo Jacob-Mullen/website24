@@ -1,8 +1,16 @@
-from flask import Flask,render_template, request
+from flask import Flask,render_template, request, redirect, url_for
 import sqlite3
+import os
 
 
 app = Flask(__name__)
+UPLOAD_FOLDER = 'static/img'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+# Ensure the upload directory exists
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
+
 
 #this is the route to the home page/landing page
 
@@ -67,20 +75,27 @@ def process():
     Image = request.form['Image']
     Drive = request.form['Drive']
     
-    # Print for debugging purposes
-    print("Make:", Make, "Model:", Model, "Engine:", Engine, "Stock_HP:", Stock_HP, "Stock_Torque:", Stock_Torque, "Image:", Image, "Drive:", Drive)
-    
+    # Handle file upload
+    if 'car_image' not in request.files:
+        return "No file part"
+    file = request.files['car_image']
+    if file.filename == '':
+        return "No selected file"
+    if file:
+        # Save the file to the upload folder
+        filename = file.filename
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(file_path)
+        print(f"Image saved at {file_path}")
+
+    # Save form data and file path to the database
     conn = sqlite3.connect('cars.db')
     cur = conn.cursor()
-    
-    # Corrected INSERT statement with placeholders and tuple of values
     cur.execute("INSERT INTO car (make, model, engine, stockhp, stocktorque, image, drive) VALUES (?, ?, ?, ?, ?, ?, ?)", 
                 (Make, Model, Engine, Stock_HP, Stock_Torque, Image, Drive))
-    
-    conn.commit()  # Commit the transaction
-    
-    conn.close()   # Close the connection
-    
+    conn.commit()
+    conn.close()
+
     return render_template("makes.html", title="makes")
 
 
