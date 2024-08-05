@@ -27,7 +27,7 @@ def landingpage():
 def carinfo(car_id):  
     conn = sqlite3.connect('cars.db')
     cur = conn.cursor()
-    cur.execute('select car.make, car.model, car.engine, car.stockhp, car.stocktorque, make.whatmake, engine.engine_name, car.image from car join make on car.make = make.make_id join engine on car.engine = engine.engine_id WHERE car_id=?', (car_id,))
+    cur.execute('select car.make, car.model, car.engine, car.stockhp, car.stocktorque, make.whatmake, engine.engine_name, car.image, car.drive from car join make on car.make = make.make_id join engine on car.engine = engine.engine_id WHERE car_id=?', (car_id,))
     results = cur.fetchall()
     print(results)
     return render_template("carinfo.html", title="car", results=results)
@@ -63,10 +63,26 @@ def admin():
 
 @app.route('/add')
 def add():
-    return render_template('add.html')
+    conn = sqlite3.connect('cars.db')
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM make')
+    makes = cur.fetchall()
+    print(makes)
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM drive')
+    drive = cur.fetchall()
+    print(drive)
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM engine')
+    engine = cur.fetchall()
+    print(engine)
+
+    return render_template('add.html', makes=makes, drive=drive, engine=engine)
 
 @app.route('/process', methods=['POST'])
 def process():
+
+
     Make = request.form['Make']
     Model = request.form['Model']
     Engine = request.form['Engine']

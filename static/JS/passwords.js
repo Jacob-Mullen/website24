@@ -4,8 +4,8 @@
 // Loop through Array of Objects
 var objPeople = [
 	{ // Object @ 0 index
-		username: "deez",
-		password: "nuts"
+		username: "JACOB",
+		password: "MULLEN"
 	}
 ]
 

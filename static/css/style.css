@@ -172,53 +172,72 @@ body{
     margin-left: auto;
     width: 100%;
     margin-top: 3%;
-    inh
+
 }
 
 /*adding*/
-form {
-    max-width: 400px;
-    margin: 0 auto; /* Center the form horizontally */
-    background-color: grey;
+.titleadmin {
+    text-align: center; /* Center-aligns the title text */
+    color: #333; /* Dark text color for better readability */
+    margin: 20px auto; /* Centers the title and adds spacing */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-style: solid;
-    border-radius: 10px;
+    background-color: #eee; /* Light grey background for the title */
+    border: 1px solid #ccc; /* Border for better visibility */
+    border-radius: 8px; /* Rounded corners */
+    max-width: 600px; /* Maximum width for larger screens */
 }
 
-input[type="text"] {
+/* Form Styling */
+form {
+    max-width: 600px; /* Set a max-width to ensure the form doesn’t stretch too wide */
+    margin: 0 auto; /* Center the form horizontally */
+    background-color: grey; /* White background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border: 1px solid black; /* Light border for the form */
+}
+
+/* Input Fields */
+input[type="text"],
+select {
     width: calc(100% - 22px); /* Adjust width to fit within form padding */
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid black;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
+/* File Input */
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
+/* Button Styling */
 button {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Green background for the button */
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    margin-top: 10px; /* Adds space above the button */
 }
 
+/* Button Hover Effect */
 button:hover {
     background-color: #45a049; /* Darker green when hovered */
 }
 
-.titleadmin{
-    max-width: 400px;
-    margin: 0 auto; /* Center the form horizontally */
-    background-color: grey;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-style: solid;
-    border-radius: 10px;
-    margin-bottom: 20px;
+/* Label Styling */
+label {
+    display: block; /* Ensures the label is on its own line */
+    margin-bottom: 5px; /* Adds space below the label */
 }
