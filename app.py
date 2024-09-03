@@ -114,6 +114,15 @@ def process():
 
     return render_template("makes.html", title="makes")
 
+@app.route('/engine')
+def engine():
+    conn = sqlite3.connect('cars.db')
+    cur = conn.cursor()
+    cur.execute('select * from engine')
+    results = cur.fetchall()
+    print(results)
+    return render_template("engine.html", title="engine", results=results)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

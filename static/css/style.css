@@ -22,7 +22,9 @@ a:link, a:visited {
     color: black;
   }
 
-
+.nomaxwidth{
+    max-width:none; 
+}
 
 
 /* landing page*/
@@ -41,7 +43,6 @@ a:link, a:visited {
     margin: auto;
     margin-top: 15px; 
     width: 80%;
-    height: 840px;
     
 }
 
@@ -57,42 +58,125 @@ a:link, a:visited {
     border-radius: 10px;
     margin-top: 10px;
     height: 740px;
-    width: 24%;
+    width: 100%;
     float: inline-end;
 }
 
-/* video */
-
-.video{
-    background-color: grey;
-    border-style: solid;
-    border-radius: 10px;
-    margin-top: 10px;
-    margin-right: 80%;
-    width: 60%;
-    height: 740px;
-    float: inline-start;
-    position: absolute;
+.slider{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 1em;
+    width: 80%;
+    margin: auto;
 }
-
-
-
-.slider{   
-    margin-top: 4%;
-    margin-left: 0%;
-}
-
-/* image slider */
-
-div.scroll-container {
-    margin-top: 3%;
-    overflow: auto;
-    white-space: nowrap;
-    padding: 10px;
+/* Container Styling */
+.video {
+    max-width: 100%; 
+    margin: auto; 
   }
   
+  /* Slider Content Styling */
+  .hello {
+    position: relative;
+    padding-top: 15px;
+    width: 100%; /* Adjust the width to your liking */
+    height: 750px; /* Adjust the height to make it shorter */
+    margin: auto;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  
+  /* Slides and Video Styling */
+  .mySlides {
+    display: none; 
+    width: 100%;
+    height: 720px;
+    object-fit: cover; /* Ensures content scales properly */
+    margin-top: 15px;
+  }
+  
+  /* Adjust iframe to match image dimensions */
+  iframe.mySlides {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Navigation Button Styling */
+  .w3-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .w3-display-left {
+    left: 0;
+  }
+  
+  .w3-display-right {
+    right: 0;
+  }
+  
+  .w3-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
 /* animation */
 
+/* Container Styling 
+.video {
+  max-width: 100%; 
+  margin: auto; 
+}
+
+/* Slider Content Styling 
+.w3-content {
+  position: relative;
+  max-width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+/* Slides and Video Styling 
+.mySlides {
+  display: none; 
+  width: 100%;
+  height: 100%;
+}
+
+/* Adjust iframe to match image dimensions 
+iframe.mySlides {
+  width: 100%;
+  height: 100%;
+}
+
+/* Navigation Button Styling 
+.w3-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.w3-display-left {
+  left: 0;
+}
+
+.w3-display-right {
+  right: 0;
+}
+
+.w3-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+*/
 body{
     height: 100%;
     width: 100%;
@@ -240,4 +324,79 @@ button:hover {
 label {
     display: block; /* Ensures the label is on its own line */
     margin-bottom: 5px; /* Adds space below the label */
+}
+
+/* engines hopefully */
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #bbb;
+}
+
+/* Display the modal when the target hash matches the id of the modal */
+.modal:target {
+  display: block;
+}
+
+.rowonex {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  height: 500px; /* Set a fixed height for all images */
+}
+
+.carimagex {
+  width: 100%;
+  height: 500px; /* Set a fixed height for all images */
+  object-fit: cover; /* Ensures images cover the area without distortion */
+  border-radius: 8px; /* Optional: Adds rounded corners */
 }
