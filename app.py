@@ -27,7 +27,7 @@ def landingpage():
 def carinfo(car_id):  
     conn = sqlite3.connect('cars.db')
     cur = conn.cursor()
-    cur.execute('select car.make, car.model, car.engine, car.stockhp, car.stocktorque, make.whatmake, engine.engine_name, car.image, car.drive from car join make on car.make = make.make_id join engine on car.engine = engine.engine_id WHERE car_id=?', (car_id,))
+    cur.execute('select car.make, car.model, car.engine, car.stockhp, car.stocktorque, make.whatmake, engine.engine_name, car.image, car.drive, car.image_, car.vidlink from car join make on car.make = make.make_id join engine on car.engine = engine.engine_id WHERE car_id=?', (car_id,))
     results = cur.fetchall()
     print(results)
     return render_template("carinfo.html", title="car", results=results)
@@ -89,6 +89,8 @@ def process():
     Stock_HP = request.form['Stock HP']
     Stock_Torque = request.form['Stock Torque']
     Image = request.form['Image']
+    Imageii = request.form['Imageii']
+    video = request.form['Video']
     Drive = request.form['Drive']
     
     # Handle file upload
@@ -104,11 +106,24 @@ def process():
         file.save(file_path)
         print(f"Image saved at {file_path}")
 
+    # Handle file upload2
+    if 'car_image2' not in request.files:
+        return "No file part"
+    file = request.files['car_image2']
+    if file.filename == '':
+        return "No selected file"
+    if file:
+        # Save the file to the upload folder
+        filename = file.filename
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(file_path)
+        print(f"Image saved at {file_path}")
+
     # Save form data and file path to the database
     conn = sqlite3.connect('cars.db')
     cur = conn.cursor()
-    cur.execute("INSERT INTO car (make, model, engine, stockhp, stocktorque, image, drive) VALUES (?, ?, ?, ?, ?, ?, ?)", 
-                (Make, Model, Engine, Stock_HP, Stock_Torque, Image, Drive))
+    cur.execute("INSERT INTO car (make, model, engine, stockhp, stocktorque, image, image_, vidlink, drive) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", 
+                (Make, Model, Engine, Stock_HP, Stock_Torque, Image, Imageii, video, Drive))
     conn.commit()
     conn.close()
 
