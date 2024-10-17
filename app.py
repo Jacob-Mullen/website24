@@ -1,6 +1,8 @@
 from flask import Flask,render_template, request, redirect, url_for
 import sqlite3
 import os
+admin_password = "12345"
+admin_username = "admin"
 
 
 app = Flask(__name__)
@@ -137,6 +139,19 @@ def engine():
     results = cur.fetchall()
     print(results)
     return render_template("engine.html", title="engine", results=results)
+
+@app.route("/login", methods = ["GET", "post"])
+def login():
+    '''login route'''
+    print("login")
+    username = request.form.get("username")
+    password = request.form.get("password")
+    print(username, password)
+    if username == admin_username and password == admin_password:
+        return redirect("/add")
+    else:
+        return redirect("/admin")
+    
 
 
 if __name__ == "__main__":
